@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="Convert image files between PNG, JPEG, WebP, and BMP formats right in your browser.">
+  <title>Extension Changer — Image Converter</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Extension Changer home">
+      <span class="brand-mark" aria-hidden="true">EC</span>
+      <span>Extension<span class="brand-light"> Changer</span></span>
+    </a>
+    <a class="github-link" href="https://github.com/noreplyunabusiness/extension-changer" target="_blank" rel="noreferrer">View source ↗</a>
+  </header>
+
+  <main class="page-shell">
+    <section class="intro">
+      <p class="eyebrow">THE FILE CONVERTER</p>
+      <h1>Different format.<br><span>Same file, transformed.</span></h1>
+      <p class="intro-copy">Convert images between popular formats without uploading them to a server. Your files stay in your browser.</p>
+    </section>
+
+    <section class="converter-card" aria-label="Image converter">
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose an image or drop one here">
+        <input id="file-input" type="file" accept="image/png,image/jpeg,image/webp,image/bmp,image/gif,image/avif" hidden>
+        <div class="upload-icon" aria-hidden="true">↑</div>
+        <h2>Drop an image here</h2>
+        <p>or <span class="browse-text">browse files</span></p>
+        <small>PNG, JPG, WebP, BMP and other browser-supported images</small>
+      </div>
+
+      <div id="workspace" class="workspace" hidden>
+        <div class="file-panel">
+          <div class="preview-wrap"><img id="preview" alt="Selected image preview"></div>
+          <div class="file-details">
+            <div class="file-heading">
+              <div><p class="field-label">SELECTED FILE</p><h2 id="file-name">image.png</h2></div>
+              <button id="remove-file" class="text-button" type="button">Remove</button>
+            </div>
+            <div class="metadata">
+              <span><b>Format</b><span id="file-format">PNG</span></span>
+              <span><b>Size</b><span id="file-size">—</span></span>
+              <span><b>Dimensions</b><span id="file-dimensions">—</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings">
+          <label for="format-select">CONVERT TO</label>
+          <div class="select-wrap">
+            <select id="format-select">
+              <option value="image/png">PNG (.png)</option>
+              <option value="image/jpeg">JPEG (.jpg)</option>
+              <option value="image/webp">WebP (.webp)</option>
+              <option value="image/bmp">BMP (.bmp)</option>
+            </select>
+            <span aria-hidden="true">⌄</span>
+          </div>
+          <p class="hint" id="format-hint">PNG keeps transparency and uses lossless compression.</p>
+        </div>
+
+        <button id="convert-button" class="convert-button" type="button">Convert image <span aria-hidden="true">→</span></button>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+        <a id="download-link" class="download-button" hidden>Download converted file ↓</a>
+      </div>
+    </section>
+
+    <p class="privacy-note"><span aria-hidden="true">◈</span> Private by design — conversion happens locally on your device.</p>
+    <footer><span>Extension Changer</span><span>Image conversion · First release</span></footer>
+  </main>
+</body>
+</html>
