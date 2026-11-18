@@ -1,0 +1,49 @@
+Extension Changer Responsible Use License (ECRUL) v1.0
+Copyright (c) 2026 Extension Changer project contributors
+
+IMPORTANT
+This is a custom, source-available license, not a standard OSI-approved open-source license. It is provided as a practical starting point, not legal advice. The project owner should have the final text reviewed by a qualified lawyer before relying on it.
+
+1. Definitions
+
+"Software" means the source code and accompanying materials distributed with this license.
+"Licensor" means the copyright holder(s) who make the Software available under this license.
+"You" means any person or organization exercising rights under this license.
+"Official Project" means the Extension Changer project maintained by the Licensor.
+"Malicious or Deceptive Use" means using the Software or a modified version to create, distribute, or operate malware, phishing pages, credential-harvesting pages, scams, deceptive downloads, or websites that impersonate another service or mislead people about their identity, purpose, or operator.
+
+2. Permission Grant
+
+Subject to the terms of this license, the Licensor grants You a worldwide, non-exclusive, royalty-free, revocable (only as described in Section 5) license to use, reproduce, modify, create derivative works from, and distribute the Software and derivative works, including for personal and commercial purposes.
+
+3. Conditions
+
+When You redistribute the Software or a substantial portion of it, You must:
+- Include this license text and preserve existing copyright and attribution notices.
+- Clearly identify modified versions as modified or unofficial forks.
+- Not claim that Your project, website, or modified version is the Official Project or is endorsed by the Licensor unless You have written permission.
+- Not use the Official Project's name, logos, or branding in a way that falsely suggests affiliation, endorsement, or that a fork is the Official Project.
+
+4. Responsible Use Restrictions
+
+You must not use, help another person use, or distribute the Software or a derivative work for Malicious or Deceptive Use.
+
+This restriction does not prohibit legitimate security research, education, testing, or demonstrations that are authorized, do not target unsuspecting people, and do not deploy malware, phishing, credential theft, scams, or deceptive impersonation.
+
+5. Termination
+
+The permissions granted by this license terminate automatically if You materially violate its terms. If the violation is cured within 30 days after You become aware of it or receive written notice from the Licensor, whichever occurs first, the permissions are reinstated provisionally unless the Licensor gives written notice otherwise. Termination does not erase obligations that arose before termination.
+
+6. No Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. YOU ARE SOLELY RESPONSIBLE FOR YOUR USE, MODIFICATIONS, AND DISTRIBUTION OF THE SOFTWARE.
+
+7. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE LICENSOR AND CONTRIBUTORS SHALL NOT BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+8. Other Terms
+
+You may not impose additional restrictions on recipients' exercise of the rights granted by this license to the Software itself. If any provision is held unenforceable, the remaining provisions remain in effect to the extent permitted by law. No trademark rights are granted by this license.
+
+END OF LICENSE
