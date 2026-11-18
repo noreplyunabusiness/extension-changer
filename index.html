@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111827">
-  <meta name="description" content="Convert image files between PNG, JPEG, WebP, and BMP formats right in your browser.">
-  <title>Extension Changer — Image Converter</title>
+  <meta name="description" content="Convert image and audio files locally in your browser with Extension Changer.">
+  <title>Extension Changer — File Converter</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.1/lame.min.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -22,30 +23,39 @@
     <section class="intro">
       <p class="eyebrow">THE FILE CONVERTER</p>
       <h1>Different format.<br><span>Same file, transformed.</span></h1>
-      <p class="intro-copy">Convert images between popular formats without uploading them to a server. Your files stay in your browser.</p>
+      <p class="intro-copy">Convert images and audio without uploading your files to a conversion server. Your files stay on your device.</p>
     </section>
 
-    <section class="converter-card" aria-label="Image converter">
-      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose an image or drop one here">
+    <section class="converter-card" aria-label="File converter">
+      <div class="category-switch" role="group" aria-label="File category">
+        <button id="image-mode" class="category-button active" type="button" aria-pressed="true">Images</button>
+        <button id="audio-mode" class="category-button" type="button" aria-pressed="false">Audio</button>
+      </div>
+
+      <div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Choose a file or drop one here">
         <input id="file-input" type="file" accept="image/png,image/jpeg,image/webp,image/bmp,image/gif,image/avif" hidden>
         <div class="upload-icon" aria-hidden="true">↑</div>
-        <h2>Drop an image here</h2>
+        <h2 id="drop-title">Drop an image here</h2>
         <p>or <span class="browse-text">browse files</span></p>
-        <small>PNG, JPG, WebP, BMP and other browser-supported images</small>
+        <small id="drop-help">PNG, JPG, WebP, BMP and other browser-supported images</small>
       </div>
 
       <div id="workspace" class="workspace" hidden>
         <div class="file-panel">
-          <div class="preview-wrap"><img id="preview" alt="Selected image preview"></div>
+          <div class="preview-wrap" id="image-preview-wrap"><img id="preview" alt="Selected image preview"></div>
+          <div class="audio-preview-wrap" id="audio-preview-wrap" hidden>
+            <div class="audio-icon" aria-hidden="true">♫</div>
+            <audio id="audio-preview" controls></audio>
+          </div>
           <div class="file-details">
             <div class="file-heading">
-              <div><p class="field-label">SELECTED FILE</p><h2 id="file-name">image.png</h2></div>
+              <div><p class="field-label">SELECTED FILE</p><h2 id="file-name">file</h2></div>
               <button id="remove-file" class="text-button" type="button">Remove</button>
             </div>
             <div class="metadata">
-              <span><b>Format</b><span id="file-format">PNG</span></span>
+              <span><b>Format</b><span id="file-format">—</span></span>
               <span><b>Size</b><span id="file-size">—</span></span>
-              <span><b>Dimensions</b><span id="file-dimensions">—</span></span>
+              <span><b id="extra-label">Dimensions</b><span id="file-extra">—</span></span>
             </div>
           </div>
         </div>
@@ -70,8 +80,8 @@
       </div>
     </section>
 
-    <p class="privacy-note"><span aria-hidden="true">◈</span> Private by design — conversion happens locally on your device.</p>
-    <footer><span>Extension Changer</span><span>Image conversion · First release</span></footer>
+    <p class="privacy-note"><span aria-hidden="true">◈</span> Your selected files are processed locally in your browser.</p>
+    <footer><span>Extension Changer</span><span>Image + audio conversion · v1</span></footer>
   </main>
 </body>
 </html>
