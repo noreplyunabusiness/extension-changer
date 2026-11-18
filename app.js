@@ -17,7 +17,7 @@ const imageFormats = {
 };
 const audioFormats = {
   "audio/wav": { label: "WAV", extension: "wav", hint: "WAV uses uncompressed PCM audio. Files can be large." },
-  "audio/mpeg": { label: "MP3", extension: "mp3", hint: "MP3 uses lossy compression. The encoder uses a 128 kbps bitrate." }
+  "audio/mpeg": { label: "MP3", extension: "mp3", hint: "MP3 uses lossy compression. Choose a bitrate below." }
 };
 let mode = "image";
 let selectedFile = null;
@@ -168,6 +168,7 @@ function formatDuration(seconds) {
 function updateHint() {
   const formats = mode === "audio" ? audioFormats : imageFormats;
   $("format-hint").textContent = formats[formatSelect.value].hint;
+  $("mp3-options").hidden = mode !== "audio" || formatSelect.value !== "audio/mpeg";
 }
 function canvasBlob(canvas, mime) {
   return new Promise((resolve, reject) => {
@@ -231,11 +232,11 @@ function encodeWav(audioBuffer) {
   }
   return new Blob([buffer], {type: "audio/wav"});
 }
-function encodeMp3(audioBuffer) {
+function encodeMp3(audioBuffer, bitrate) {
   if (!window.lamejs) throw new Error("The MP3 encoder did not load. Check your internet connection and try again, or choose WAV.");
   const channels = Math.min(audioBuffer.numberOfChannels, 2);
   const sampleRate = audioBuffer.sampleRate;
-  const encoder = new window.lamejs.Mp3Encoder(channels, sampleRate, 128);
+  const encoder = new window.lamejs.Mp3Encoder(channels, sampleRate, bitrate);
   const left = audioBuffer.getChannelData(0);
   const right = channels === 2 ? audioBuffer.getChannelData(1) : left;
   const blockSize = 1152;
@@ -290,7 +291,7 @@ async function convertAudio() {
     const decoded = await context.decodeAudioData(data);
     if (decoded.duration > 600) throw new Error("Audio is limited to 10 minutes in this first audio release.");
     if (decoded.numberOfChannels > 2) throw new Error("This first release supports mono and stereo audio only.");
-    return formatSelect.value === "audio/mpeg" ? encodeMp3(decoded) : encodeWav(decoded);
+    return formatSelect.value === "audio/mpeg" ? encodeMp3(decoded, Number($("mp3-bitrate").value)) : encodeWav(decoded);
   } finally {
     await context.close();
   }
@@ -333,6 +334,7 @@ $("remove-file").addEventListener("click", reset);
 $("image-mode").addEventListener("click", () => setMode("image"));
 $("audio-mode").addEventListener("click", () => setMode("audio"));
 formatSelect.addEventListener("change", () => { updateHint(); clearDownload(); setStatus(); });
+$("mp3-bitrate").addEventListener("change", () => { clearDownload(); setStatus("MP3 settings changed. Convert again to apply them."); });
 convertButton.addEventListener("click", convert);
 window.addEventListener("beforeunload", () => {
   if (previewUrl) URL.revokeObjectURL(previewUrl);
