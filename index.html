@@ -72,6 +72,15 @@
             <span aria-hidden="true">⌄</span>
           </div>
           <p class="hint" id="format-hint">PNG keeps transparency and uses lossless compression.</p>
+          <div id="mp3-options" class="mp3-options" hidden>
+            <label for="mp3-bitrate">MP3 BITRATE</label>
+            <select id="mp3-bitrate">
+              <option value="128">128 kbps · Smaller file</option>
+              <option value="192" selected>192 kbps · Balanced</option>
+              <option value="320">320 kbps · Highest MP3 quality</option>
+            </select>
+            <p class="hint">Higher bitrates use more space. MP3 is always lossy.</p>
+          </div>
         </div>
 
         <button id="convert-button" class="convert-button" type="button">Convert image <span aria-hidden="true">→</span></button>
