@@ -11,7 +11,7 @@ A lightweight, browser-based file converter. Extension Changer converts file dat
 ### Audio
 - Convert browser-decodable audio to **WAV or MP3**
 - Preview audio before conversion
-- WAV output is uncompressed 16-bit PCM; MP3 output is encoded at 128 kbps
+- WAV output is uncompressed 16-bit PCM; MP3 output offers 128, 192, or 320 kbps bitrate choices
 - Audio input formats depend on browser support (commonly MP3, WAV, OGG, M4A, AAC, and sometimes FLAC)
 
 ### Shared features
